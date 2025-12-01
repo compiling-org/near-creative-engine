@@ -1,0 +1,11 @@
+{
+  "wallet_address": "t3qpya3b0ltqascpk4fy3x4m6b3x4m6b3x4m6b3x4m6b3x4m6b3x4m6b3x4m6b3x4m6b3x4m6b3x4m6b",
+  "ipfs_hash": "QmVju8bZ7ESqMcUPyb9Q9YVQwZKoWR7KbTfWsqsAb6vEzg",
+  "piece_size": 1024,
+  "deal_duration": 520000,
+  "storage_price": "0",
+  "miner_addresses": ["t01000", "t01001", "t01002"],
+  "network": "calibration",
+  "verified_deal": true,
+  "fast_retrieval": true
+}

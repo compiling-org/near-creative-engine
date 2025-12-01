@@ -1,0 +1,57 @@
+[package]
+name = "nft-rust-client"
+version = "0.1.0"
+edition = "2021"
+description = "Core Rust library for generating and formatting audiovisual/emotional metadata"
+authors = ["Dr. Kapil Bambardekar <kapil.bambardekar@gmail.com>", "Grigori Korotkikh <vdmo@gmail.com>"]
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/compiling-org/nft-blockchain-interactive"
+homepage = "https://compiling-org.netlify.app"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+path = "src/lib_simple.rs"
+
+[dependencies]
+anyhow = "1.0"
+thiserror = "1.0"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde", "wasmbind"] }
+uuid = { version = "1.0", features = ["v4", "serde", "js"] }
+base64 = "0.21"
+hex = "0.4"
+sha2 = "0.10"
+rand = { version = "0.8", features = ["getrandom"] }
+getrandom = { version = "0.2", features = ["js"] }
+
+# Force getrandom 0.2 to avoid conflicts
+[patch.crates-io]
+getrandom = "0.2"
+
+# AI/ML dependencies from reference implementations
+# candle-core = { git = "https://github.com/huggingface/candle.git", optional = true }
+# candle-nn = { git = "https://github.com/huggingface/candle.git", optional = true }
+# lancedb = { version = "0.22.3", optional = true }
+# tunes = { version = "0.3", optional = true }  # Music generation and audio processing
+# rodio = { version = "0.17", optional = true }  # Audio playback (kept for compatibility)
+
+
+# WASM support
+wasm-bindgen = "0.2"
+web-sys = { version = "0.3", features = ["console", "Window", "Document", "HtmlCanvasElement", "WebGlRenderingContext", "WebGlShader", "WebGlProgram", "WebGlBuffer", "WebGlUniformLocation", "Navigator", "Gpu", "MediaDevices", "MediaStream", "MediaStreamConstraints", "AudioContext", "Bluetooth", "BluetoothDevice", "BluetoothRemoteGattServer", "BluetoothRemoteGattService", "BluetoothRemoteGattCharacteristic"] }
+js-sys = "0.3"
+wasm-bindgen-futures = "0.4"
+serde-wasm-bindgen = "0.6"
+console_error_panic_hook = "0.1"
+futures = "0.3"
+tokio = { version = "1.0", features = ["sync", "macros"] }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+tokio = { version = "1.0", features = ["full"] }
+
+[features]
+default = []
+ai-ml = []
+db = []
+audio = []
