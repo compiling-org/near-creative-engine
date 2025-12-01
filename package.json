@@ -1,50 +1,44 @@
 {
   "name": "near-creative-engine",
   "version": "1.0.0",
-  "description": "NEAR Creative Engine - AI-powered biometric NFTs with emotional computing",
+  "description": "NEAR Creative Engine with AI/ML Integration",
   "main": "src/index.js",
   "scripts": {
-    "build": "tsc",
-    "deploy:near": "bash scripts/deploy-near-soulbound.sh",
-    "deploy:testnet": "bash scripts/deploy-near-testnet.sh",
-    "deploy:mainnet": "bash scripts/deploy-near-mainnet.sh",
+    "build": "cargo build --target wasm32-unknown-unknown",
     "test": "cargo test",
-    "build:wasm": "cargo build --target wasm32-unknown-unknown --release",
-    "build:contracts": "cargo build --release",
-    "start": "node src/index.js"
+    "dev": "vite",
+    "build:frontend": "vite build",
+    "deploy:testnet": "near deploy --accountId YOUR_TESTNET_ACCOUNT --wasmFile target/wasm32-unknown-unknown/release/near_creative_engine.wasm",
+    "deploy:mainnet": "near deploy --accountId YOUR_MAINNET_ACCOUNT --wasmFile target/wasm32-unknown-unknown/release/near_creative_engine.wasm"
   },
   "dependencies": {
     "near-api-js": "^2.1.4",
-    "@tensorflow/tfjs": "^4.22.0",
-    "@tensorflow/tfjs-node": "^4.22.0",
-    "crypto": "^1.0.1",
+    "@near-wallet-selector/core": "^8.9.3",
+    "@near-wallet-selector/near-wallet": "^8.9.3",
+    "@near-wallet-selector/meteor-wallet": "^8.9.3",
+    "@near-wallet-selector/sender": "^8.9.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.0.0",
+    "nft.storage": "^7.1.1",
     "web3.storage": "^4.5.0",
-    "lancedb": "^0.5.2",
-    "iron-learn": "^0.1.0"
+    "@tensorflow/tfjs": "^4.15.0",
+    "@tensorflow/tfjs-node": "^4.15.0",
+    "vite": "^5.0.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "lucide-react": "^0.294.0",
+    "tailwindcss": "^3.3.6",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32"
   },
   "devDependencies": {
-    "typescript": "^5.0.2",
     "@types/node": "^20.0.0",
-    "@types/crypto-js": "^4.1.1"
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/crypto-js": "^4.2.1",
+    "crypto-js": "^4.2.0"
   },
-  "keywords": [
-    "near",
-    "blockchain",
-    "ai",
-    "nft",
-    "biometric",
-    "emotional-computing",
-    "cross-chain",
-    "webgpu",
-    "tensorflow"
-  ],
+  "keywords": ["near", "blockchain", "ai", "nft", "biometric", "creative-engine"],
   "author": "NEAR Creative Engine Team",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/near-creative-engine/near-creative-engine.git"
-  },
-  "engines": {
-    "node": ">=16.0.0"
-  }
+  "license": "MIT"
 }
