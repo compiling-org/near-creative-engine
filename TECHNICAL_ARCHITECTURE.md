@@ -394,3 +394,40 @@ NFT Metadata → IPFS Pinning → Filecoin Storage → CID Generation → Cross-
 2. **Federated Learning**: Enhanced federated learning capabilities
 3. **Differential Privacy**: Privacy-preserving data analysis
 4. **Secure Multi-Party Computation**: Enhanced privacy for collaborative computations
+### Architecture Diagram
+
+```mermaid
+graph LR
+    U[User Input] --> BIOMETRIC[Biometric Capture]
+    BIOMETRIC --> AI[Emotion Model]
+    AI --> META[Emotional Metadata]
+    META --> CONTRACT[Chain Contract/Program]
+    CONTRACT --> NFT[NFT Mint/Update]
+    NFT --> IPFS[IPFS Storage]
+    CONTRACT --> WALLET[Wallet]
+    WALLET --> TX[Signed Transaction]
+```
+
+### Component Flow
+
+```mermaid
+graph TB
+    subgraph Client
+        UI[UI]
+        GPU[WebGPU]
+        MODEL[TF.js/AI]
+    end
+    subgraph Blockchain
+        CHAIN[Contract/Program]
+        METADATA[On-chain Metadata]
+    end
+    subgraph Storage
+        IPFS[IPFS/Filecoin]
+    end
+    UI --> GPU
+    GPU --> MODEL
+    MODEL --> CREATE[Create Emotional Metadata]
+    CREATE --> CHAIN
+    CHAIN --> METADATA
+    METADATA --> IPFS
+```
