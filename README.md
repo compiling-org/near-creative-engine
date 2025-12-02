@@ -86,3 +86,49 @@ const nft = await nearAI.createAIBiometricNFT(session, {
 
 ## License
 MIT
+
+### Architecture Diagram
+
+
+
+### Component Flow
+
+
+
+
+
+
+### Architecture Diagram
+
+```mermaid
+graph LR
+    U[User Input] --> BIOMETRIC[Biometric Capture]
+    BIOMETRIC --> AI[Emotion Model]
+    AI --> META[Emotional Metadata]
+    META --> CONTRACT[NEAR Contract]
+    CONTRACT --> NFT[NFT Mint]
+    NFT --> IPFS[IPFS Storage]
+```
+
+### Component Flow
+
+```mermaid
+graph TB
+    subgraph Client
+        UI[Fractal Studio UI]
+        GPU[WebGPU Engine]
+        MODEL[TensorFlow.js Model]
+    end
+    subgraph Blockchain
+        NEARCONTRACT[NEAR WASM Contract]
+        METADATA[On-chain Emotional State]
+    end
+    subgraph Storage
+        IPFS[IPFS/Filecoin]
+    end
+    UI --> GPU
+    GPU --> MODEL
+    MODEL --> NEARCONTRACT
+    NEARCONTRACT --> METADATA
+    METADATA --> IPFS
+```
